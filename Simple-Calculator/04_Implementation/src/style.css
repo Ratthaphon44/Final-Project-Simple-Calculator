@@ -1,0 +1,99 @@
+:root{
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --accent: #2b7cff;
+  --btn: #e6eefc;
+  --text: #222;
+  --operator-bg: #fff3cd;
+  --sci-func-bg: #e1f5fe;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  font-family: Inter, Arial, sans-serif;
+  display:flex;
+  min-height:100vh;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.calculator{
+  width:400px;
+  background:var(--panel);
+  border-radius:12px;
+  box-shadow: 0 10px 25px rgba(30,30,50,0.08);
+  overflow:hidden;
+}
+
+.display{
+  padding:18px;
+  background: linear-gradient(180deg,#fff,#f7fbff);
+  border-bottom:1px solid #eef3ff;
+}
+
+.expression{
+  font-size:14px;
+  color:#556;
+  min-height:18px;
+  word-wrap:break-word;
+  opacity:0.9;
+}
+
+.result{
+  font-size:32px;
+  color:var(--text);
+  font-weight:600;
+  text-align:right;
+  margin-top:6px;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns: repeat(5,1fr);
+  gap:10px;
+  padding:16px;
+  background:transparent;
+}
+
+.btn{
+  padding:14px;
+  border-radius:8px;
+  border:none;
+  font-size:18px;
+  cursor:pointer;
+  background:var(--btn);
+  color:var(--text);
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.04);
+}
+
+.btn:active{transform:translateY(1px)}
+
+/* สีปุ่ม Sci-Func */
+.btn.sci-func{
+    background: var(--sci-func-bg);
+    font-size: 14px;
+}
+/* สีปุ่ม Operator */
+.btn.operator{ background:var(--operator-bg) }
+/* สีปุ่ม Function (C, ⌫) */
+.btn.func{ background:#ffe6e6 }
+
+/* ปุ่ม Equal */
+.btn.equal{
+  background:var(--accent);
+  color:white;
+  grid-row: auto; 
+  grid-column: auto;
+  height: auto;
+  align-self: auto;
+}
+
+@media (max-width:420px){
+  .calculator{ width: 98vw; }
+  .result{ font-size:28px; }
+  .btn{ font-size: 16px; padding: 10px; }
+  .btn.sci-func { font-size: 12px; }
+}
